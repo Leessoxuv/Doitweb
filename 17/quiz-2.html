@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>연습문제 2</title>
+	<style>
+    table, td {
+      border: 1px solid #ccc;
+      border-collapse: collapse;
+    }
+    td {
+      padding: 5px;
+      font-size: 0.9em;
+    }
+		input[type="text"] {
+			height: 20px;
+			width: 20px;
+		}
+  </style>
+</head>
+<body>
+	<div>
+		<h1> 빈칸에 행과 열을 입력하세요 </h1>
+		<form>
+			<input type="text" id="rowtb" value="1">행
+			<input type="text" id="coltb" value="1">열
+			<button onclick="createTable(); return false;">작성</button>
+		</form>
+		<div id="container"></div>
+	</div>
+	<script>
+		function createTable() {
+			var newTb = document.createElement("table");
+			var rowTb = document.querySelector("#rowtb").value;
+			var colTb = document.querySelector("#coltb").value;
+
+			for(i = 0; i <= rowTb; i++) {
+				var newTr = document.createElement("tr");
+				for(j = 0; j <= colTb; j++) {
+					var newTd = document.createElement("td");
+					var newTn = document.createTextNode(i + ", " + j);
+					newTd.appendChild(newTn);
+					newTr.appendChild(newTd);
+				}
+				newTb.appendChild(newTr);
+			}
+			document.getElementById("container").appendChild(newTb);
+		}
+	</script>
+</body>
+</html>
